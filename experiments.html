@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experiments with template, audio, video, canvas, source and MathML.">
+  <title>Xinyi - HTML Experiments</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <p><a href="index.html"><strong>HOME</strong></a></p>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>HTML experiments</h1>
+    <p>A test page for HTML elements that will be used in later versions of this portfolio.</p>
+
+    <section aria-labelledby="template-heading">
+      <h2 id="template-heading">Template</h2>
+      <p>
+        The <code>template</code> below holds the markup for a project card.
+        Browsers parse it but do not display it. In a later homework, JavaScript can clone it once per project.
+      </p>
+      <template id="project-card-template">
+        <article>
+          <h3>Project title</h3>
+          <p>Short summary of the project.</p>
+          <div>
+            <tech-tag>Tool</tech-tag>
+            <tech-tag>Tool</tech-tag>
+          </div>
+          <p><a href="projects.html">Read more</a></p>
+        </article>
+      </template>
+    </section>
+
+    <section aria-labelledby="audio-heading">
+      <h2 id="audio-heading">Audio</h2>
+      <p>A three-second test tone. Each <code>source</code> offers a different format, and the browser plays the first one it supports.</p>
+      <audio controls preload="metadata">
+        <source src="media/tone.ogg" type="audio/ogg">
+        <source src="media/tone.mp3" type="audio/mpeg">
+        Your browser does not support the audio element. <a href="media/tone.mp3">Download the audio</a>.
+      </audio>
+    </section>
+
+    <section aria-labelledby="video-heading">
+      <h2 id="video-heading">Video</h2>
+      <p>A short test pattern in WebM and MP4. Later, this is where a project demo video, such as an Immersive Touch session, could go.</p>
+      <video controls width="320" height="240" preload="metadata">
+        <source src="media/sample.webm" type="video/webm">
+        <source src="media/sample.mp4" type="video/mp4">
+        Your browser does not support the video element. <a href="media/sample.mp4">Download the video</a>.
+      </video>
+    </section>
+
+    <section aria-labelledby="canvas-heading">
+      <h2 id="canvas-heading">Canvas</h2>
+      <p>A tiny script draws an image placeholder, the same crossed box used in my wireframes.</p>
+      <canvas id="wireframe-canvas" width="300" height="200">
+        A grey box with an X through it, the symbol for an image in a wireframe.
+      </canvas>
+      <script>
+        const ctx = document.getElementById("wireframe-canvas").getContext("2d");
+        ctx.fillStyle = "#a7a7a7";
+        ctx.fillRect(0, 0, 300, 200);
+        ctx.strokeRect(0, 0, 300, 200);
+        ctx.beginPath();
+        ctx.moveTo(0, 0); ctx.lineTo(300, 200);
+        ctx.moveTo(300, 0); ctx.lineTo(0, 200);
+        ctx.stroke();
+      </script>
+    </section>
+
+    <section aria-labelledby="math-heading">
+      <h2 id="math-heading">Extra credit: MathML</h2>
+      <p>Einstein's mass–energy equivalence:</p>
+      <math display="block">
+        <mi>E</mi>
+        <mo>=</mo>
+        <mi>m</mi>
+        <msup>
+          <mi>c</mi>
+          <mn>2</mn>
+        </msup>
+      </math>
+      <h3>Why MathML took so long to be usable</h3>
+      <p>
+        MathML has been part of the HTML specification for years, but developers could not rely on it because
+        browser support was uneven. Firefox supported it early and Safari had partial support,
+        but Chrome removed its short-lived implementation and did not ship MathML again until
+        <strong>Chrome 109 in January 2023</strong>. Because Chromium also powers Edge, Opera and many other browsers,
+        most users could not see MathML for a long time, so developers used images or JavaScript libraries such as MathJax instead.
+        Only once every major engine supported MathML Core could it be written directly in HTML with confidence.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Xinyi.</p>
+  </footer>
+</body>
+</html>

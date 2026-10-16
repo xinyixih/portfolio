@@ -1,0 +1,31 @@
+/* HW2 rule: borders only. Layout (columns, nav bar, spacing) comes in HW3.
+   Exception: rules inside the tech-tag selector (custom element #1). */
+
+header {
+  border-bottom: 4px solid;
+}
+
+footer {
+  border-top: 1px solid;
+}
+
+img,
+iframe {
+  border: 1px solid;
+}
+
+.contact-links li {
+  border: 1px solid;
+}
+
+/* Custom element #1: <tech-tag>, a semantic label for a skill or technology.
+   CSS inside this selector does not count toward the property limit. */
+tech-tag {
+  display: inline-block;
+  padding: 0.1em 0.6em;
+  margin: 0.15em;
+  border: 1px solid;
+  border-radius: 1em;
+  font-size: 0.85em;
+  font-family: monospace;
+}
